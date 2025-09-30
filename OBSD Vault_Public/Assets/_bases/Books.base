@@ -1,0 +1,71 @@
+filters:
+  and:
+    - file.hasTag("book")
+    - file.folder != "Assets"
+views:
+  - type: cards
+    name: Cover View
+    order:
+      - file.name
+      - author
+      - category
+      - rating
+    sort:
+      - property: localCoverImage
+        direction: ASC
+      - property: rating
+        direction: DESC
+      - property: category
+        direction: ASC
+    imageFit: ""
+    image: note.localCoverImage
+    cardSize: 200
+    imageAspectRatio: 1.25
+  - type: cards
+    name: Unread
+    filters:
+      and:
+        - '!file.name.contains("+")'
+    order:
+      - file.name
+      - author
+      - category
+      - rating
+    sort:
+      - property: rating
+        direction: DESC
+      - property: category
+        direction: ASC
+      - property: localCoverImage
+        direction: ASC
+      - property: file.ctime
+        direction: ASC
+    imageFit: ""
+    image: note.localCoverImage
+    cardSize: 200
+    imageAspectRatio: 1.25
+  - type: cards
+    name: Currently Reading
+    filters:
+      and:
+        - file.name.containsAny("=")
+    order: []
+    sort:
+      - property: rating
+        direction: DESC
+      - property: localCoverImage
+        direction: ASC
+      - property: file.ctime
+        direction: DESC
+    imageFit: ""
+    image: note.localCoverImage
+    cardSize: 180
+    imageAspectRatio: 1.25
+  - type: table
+    name: Table
+    filters:
+      and:
+        - file.hasTag("book")
+    order:
+      - file.name
+      - localCoverImage

@@ -1,0 +1,35 @@
+views:
+  - type: cards
+    name: Wine
+    filters:
+      and:
+        - file.hasTag("food/wine")
+    order:
+      - file.name
+      - rating
+    sort:
+      - property: rating
+        direction: DESC
+      - property: localCoverImage
+        direction: ASC
+    imageFit: ""
+    cardSize: 250
+    image: note.localCoverImage
+    imageAspectRatio: 0.75
+  - type: cards
+    name: Beer
+    filters:
+      and:
+        - file.hasTag("food/beer")
+    order:
+      - file.name
+      - rating
+    sort:
+      - property: rating
+        direction: DESC
+      - property: localCoverImage
+        direction: ASC
+    imageFit: ""
+    cardSize: 250
+    image: note.localCoverImage
+    imageAspectRatio: 1

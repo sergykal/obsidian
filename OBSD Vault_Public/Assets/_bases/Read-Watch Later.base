@@ -1,0 +1,69 @@
+filters:
+  and:
+    - file.hasTag("read-watch-later")
+    - file.folder != "Assets"
+views:
+  - type: table
+    name: Read/Watch
+    order:
+      - file.mtime
+      - file.name
+      - tags
+      - file.links
+    sort:
+      - property: file.mtime
+        direction: ASC
+    columnSize:
+      file.mtime: 194
+      file.name: 592
+      note.tags: 249
+      file.links: 236
+  - type: table
+    name: Read
+    filters:
+      and:
+        - file.hasTag("book")
+    order:
+      - file.mtime
+      - file.name
+      - tags
+      - file.links
+    sort:
+      - property: file.links
+        direction: DESC
+    columnSize:
+      file.name: 592
+      file.mtime: 194
+      note.tags: 451
+      file.links: 236
+  - type: table
+    name: Watch
+    filters:
+      and:
+        - file.hasTag("video", "YouTube", "movie")
+    order:
+      - file.mtime
+      - file.name
+      - tags
+      - file.links
+    sort:
+      - property: file.links
+        direction: DESC
+    columnSize:
+      file.name: 592
+      file.mtime: 194
+      note.tags: 451
+      file.links: 236
+  - type: table
+    name: Embed
+    order:
+      - file.name
+    sort:
+      - property: file.mtime
+        direction: DESC
+    limit: 5
+    columnSize:
+      file.mtime: 194
+      file.name: 592
+      note.tags: 249
+      file.links: 236

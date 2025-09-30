@@ -1,0 +1,34 @@
+filters:
+  and:
+    - file.hasTag("where/map")
+    - file.folder != "Assets"
+views:
+  - type: cards
+    name: Cards
+    order:
+      - file.ctime
+      - file.name
+      - file.embeds
+    sort:
+      - property: localCoverImage
+        direction: ASC
+      - property: file.embeds
+        direction: ASC
+    columnSize:
+      file.ctime: 195
+      file.name: 424
+    cardSize: 250
+    image: note.localCoverImage
+    imageAspectRatio: 1.1
+  - type: table
+    name: Table
+    order:
+      - file.ctime
+      - file.name
+      - file.embeds
+    sort:
+      - property: file.embeds
+        direction: ASC
+    columnSize:
+      file.ctime: 195
+      file.name: 424

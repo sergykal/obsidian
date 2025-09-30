@@ -1,0 +1,16 @@
+filters:
+  and:
+    - file.hasTag("person")
+    - file.folder == "FILING CABINET"
+views:
+  - type: table
+    name: Table
+    order:
+      - updated
+      - file.name
+      - file.embeds
+    sort:
+      - property: updated
+        direction: DESC
+    columnSize:
+      file.name: 241

@@ -1,0 +1,19 @@
+filters:
+  and:
+    - file.hasTag("list")
+    - file.folder != "Assets"
+views:
+  - type: table
+    name: Table
+    order:
+      - file.ctime
+      - file.name
+      - file.embeds
+      - file.links
+    sort:
+      - property: file.ctime
+        direction: ASC
+    columnSize:
+      file.ctime: 203
+      file.name: 536
+      file.embeds: 606
