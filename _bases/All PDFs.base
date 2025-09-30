@@ -1,0 +1,21 @@
+filters:
+  and:
+    - file.name.contains(".pdf")
+    - file.folder != "Assets"
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - file.folder
+      - file.embeds
+      - file.tags
+      - file.size
+    sort:
+      - property: file.ext
+        direction: ASC
+    columnSize:
+      file.name: 625
+      file.folder: 534
+      file.embeds: 583
+      file.tags: 399

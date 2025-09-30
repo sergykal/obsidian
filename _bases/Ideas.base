@@ -1,0 +1,40 @@
+filters:
+  and:
+    - file.hasTag("idea")
+    - file.folder != "Assets"
+views:
+  - type: cards
+    name: Cards
+    order:
+      - file.name
+      - file.folder
+      - tags
+    sort:
+      - property: file.mtime
+        direction: DESC
+      - property: localCoverImage
+        direction: ASC
+    columnSize:
+      file.ctime: 200
+      file.folder: 231
+      file.name: 478
+      file.embeds: 596
+    cardSize: 240
+    image: note.localCoverImage
+    imageAspectRatio: 0.75
+    imageFit: ""
+  - type: table
+    name: Table
+    order:
+      - file.folder
+      - file.name
+      - file.embeds
+      - file.backlinks
+    sort:
+      - property: file.ctime
+        direction: DESC
+    columnSize:
+      file.ctime: 200
+      file.folder: 231
+      file.name: 478
+      file.embeds: 596
